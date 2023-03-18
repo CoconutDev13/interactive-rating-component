@@ -1,0 +1,130 @@
+:root {
+  --clr-primary: hsl(25, 97%, 53%);
+
+  --clr-neutral-light-hsl: 217, 12%, 63%;
+
+  --clr-neutral: hsl(0, 0%, 100%);
+  --clr-neutral-light: hsl(var(--clr-neutral-light-hsl));
+  --clr-neutral-medium: hsl(216, 12%, 54%);
+  --clr-neutral-dark: hsl(213, 25%, 14%);
+  --clr-neutral-very-dark: hsl(216, 12%, 8%);
+
+  --fs-default: 18px;
+  --fs-medium: 20px;
+  --fs-xl: 36px;
+
+  --font-default: 'Overpass', sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --border-gap: 2rem;
+
+  font-size: var(--fs-default);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.flow > *:not(:last-child) {
+  margin-bottom: var(--flow-spacer, 1.5rem);
+}
+
+.h-center {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+*[hidden] {
+  display: none;
+}
+
+body {
+  font-family: var(--font-default);
+  background: var(--clr-neutral-very-dark);
+  color: var(--clr-neutral-light);
+}
+
+main {
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  place-content: center;
+}
+
+.rating-card {
+  background: var(--clr-neutral-dark);
+  max-width: 500px;
+  padding: var(--border-gap);
+  border-radius: 25px;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  width: 56px;
+  height: 56px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: hsl(var(--clr-neutral-light-hsl), 0.2);
+}
+
+.title {
+  color: var(--clr-neutral);
+  font-size: var(--fs-xl);
+}
+
+.choices {
+  display: flex;
+  justify-content: space-between;
+}
+
+.choice[selected] {
+  background-color: var(--clr-primary);
+  color: var(--clr-neutral);
+}
+
+.choice:hover:not([selected]) {
+  cursor: pointer;
+  background-color: var(--clr-neutral-medium);
+  color: var(--clr-neutral);
+}
+
+.button {
+  width: 100%;
+  padding: 1.25rem 0.875rem;
+  font-weight: var(--fw-bold);
+  border-radius: 100vw;
+  background-color: var(--clr-primary);
+  color: var(--clr-neutral);
+  border: 0;
+  font-size: var(--fs-medium);
+  letter-spacing: 0.4rem;
+  transition: color 0.125s ease-in-out, background-color 0.125s ease-in-out;
+}
+
+.button:disabled {
+  background: var(--clr-neutral-medium);
+  color: var(--clr-neutral-very-dark)
+}
+
+.button:hover:not([disabled]) {
+  background-color: var(--clr-neutral);
+  color: var(--clr-primary);
+}
+
+.thank-you {
+  text-align: center;
+}
+
+.rating-summary {
+  padding: 0.5rem 1.25rem;
+  background-color: hsl(var(--clr-neutral-light-hsl), .085);
+  border-radius: 100vw;
+  color: var(--clr-primary);
+}
